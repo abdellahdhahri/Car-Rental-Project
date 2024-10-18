@@ -1,0 +1,23 @@
+
+<br>
+<br>
+<br>
+<h1 style="text-align: center; font-size: 66px;">Liste of Rented Cars</h1>
+<div class="container-fluid" style="display: flex;justify-content: center; align-items: center; margin-top: 20px; margin-top: 30px;">
+    
+<div class="cont" style="display: grid; grid-template-columns:repeat(3, 1fr); gap: 10px;">
+    <ng-container *ngFor="let item of data">
+      <div class="card" style="width: 18rem;" *ngIf="!item.avaialblity">
+        <img src="./assets/one.jpg" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <p class="card-text">{{item.vehicleMaker}}</p>
+          <p class="card-text">{{item.vehicleModel}}</p>
+          <p class="card-text">{{item.color}}</p>
+          <p class="card-text">{{item.vehicleModel}}</p>
+          <p class="card-text">{{item.rentalCost}}</p>
+          <p class="card-text">Rented</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

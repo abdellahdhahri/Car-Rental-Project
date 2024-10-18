@@ -1,0 +1,38 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+  <div class="responsive-container-block big-container" style="border: 1px solid; height: 400px; width: 700px; display: flex; justify-content: center; align-items: center;">
+    <div class="responsive-container-block container" *ngIf="car" style="display: flex; flex-direction: row; justify-content: space-around;">
+      <div class="left" id="ih6s">
+        <p class="text-blk section-head">Car Details</p>
+        <h6>Vehicle Name</h6>
+        <h2>{{car.vehicleMaker}}</h2>
+        <h6>Vehicle Model</h6>
+        <h2>{{car.vehicleModel}}</h2>
+        <h6>Vehicle Cost</h6>
+        <h2>{{car.rentalCost}}</h2>
+      </div>
+      <div class="right" id="i6df" style="display: flex; flex-direction: column;">
+        <h3>Add Details Here!!</h3>
+        <form [formGroup]="rentingForm" (ngSubmit)="onSubmit()">
+          <div class="form-wrapper">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Days Required For</mat-label>
+              <input matInput [(ngModel)]="numOfDays" name="Days" required placeholder="Days Required For" formControlName="days">
+              <mat-error *ngIf="Days.errors?.['required'] && Days.touched">
+                Days Are Required
+              </mat-error>
+            </mat-form-field>
+            <button mat-flat-button color="primary" type="button" (click)="calcPrice()">Check Price Before Booking!!</button>
+            <div *ngIf="totAmount !== undefined && totAmount !== 0">
+              <h2>Amount is: {{totAmount}}</h2>
+              <p *ngIf="totAmount !== 0">To Confirm Click Book || Or Edit Number of Days Before Booking</p>
+            </div>
+            <br>
+            <button mat-flat-button color="accent" type="submit" style="margin-top: 20px;">
+              Generate Rental Agreement
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

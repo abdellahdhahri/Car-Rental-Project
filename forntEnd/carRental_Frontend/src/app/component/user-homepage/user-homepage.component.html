@@ -1,0 +1,75 @@
+<div class="container-fluid" >
+<div class="banner" style="background-image: url('./assets/ban.jpg');background-size: cover; background-attachment: fixed;
+background-position: center;">
+  <h1>Rent The Best Car With the Best Price!!</h1>
+  <p class="description">With unbeatable prices and excellent customer service, we ensure a smooth and enjoyable rental experience.</p>
+</div>
+
+  
+  <br>
+  <br>
+  <h1 style="text-align: center;font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;color: rgb(1, 1, 1);" ><strong>Explore Our Cars</strong></h1>
+  <div class="cars" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 80px; ">
+    <div class="input-group mb-3"   style="width: 300px;height: 20px;">
+   
+      <input type="text" class="form-control" [(ngModel)]="searchText" aria-label="Text input with checkbox" placeholder="Search with any Thing">
+    </div>
+    <br>
+    <br>
+  <div class="home-cont" style="display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap: 60px; margin-top: 20px;">
+  <ng-container *ngFor="let item of data | filter: searchText; let i = index">
+  
+  <mat-card  class="custom-card" *ngIf="i < 9">
+    <mat-card-header>
+      <mat-card-title >    <img mat-card-image src="./assets/one.jpg" alt="" class="card-image" style="width: 100%;">
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-subtitle></mat-card-subtitle>
+    <mat-card-content>
+      <p class="rental-cost">{{ item.vehicleModel }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p class="rental-cost">{{ item.vehicleMaker}}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p class="rental-cost">{{ item.rentalCost | currency }}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <ng-container *ngIf="item.avaialblity; else unavailableIcon">
+        <button mat-flat-button [routerLink]="['/renting/' + item.vehicleNo]" color="accent">Rent</button>
+  
+  
+        
+        
+  
+        <!-- <a [routerLink]="['/edit/'+item.agreementID]"><button (click)="open(item.vehicleNo) " style="background-color: #b0ab4d;"  class="btn" >Edit</button></a> -->
+      </ng-container>
+      <ng-template #unavailableIcon>
+       
+        <button mat-flat-button disabled color="warn">Rent</button>
+  
+       
+      </ng-template>
+      
+      <button class="btn btn-primary" (click)="open(item.vehicleNo)" color="warn">
+        Detail
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  </ng-container>
+  
+  
+  </div>
+  </div>
+ 
+
+</div>
+
+
+
+
+   

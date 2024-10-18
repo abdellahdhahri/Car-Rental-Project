@@ -1,0 +1,33 @@
+  <div class="cont" >
+    <h2>Add Car</h2>
+    <form [formGroup]="addVehicleForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="vehicleModel">Vehicle Model</label>
+        <input type="text" formControlName="vehicleModel" class="form-control small-input" id="vehicleModel">
+      </div>
+      <div class="form-group">
+        <label for="matricule">matricule</label>
+        <input type="text" formControlName="matricule" class="form-control small-input" id="matricule">
+      </div>
+      <div class="form-group" >
+        <label for="vehicleMaker">Vehicle Maker</label>
+        <input type="text" formControlName="vehicleMaker" class="form-control small-input" id="vehicleMaker" >
+      </div>
+      <div class="form-group">
+        <label for="rentalCost">Rental Cost</label>
+        <input type="number" formControlName="rentalCost" class="form-control small-input" id="rentalCost">
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input type="text" formControlName="color" class="form-control small-input" id="color">
+      </div>
+      
+      <div class="form-group">
+        <label for="availability">Availability</label>
+        <input type="text" formControlName="availability" class="form-control small-input" id="availability">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+

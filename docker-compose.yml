@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build:
+      context: ./forntEnd/carRental_Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+
+  api:
+    build:
+      context: ./backEnd/carRental_Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: ""
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"

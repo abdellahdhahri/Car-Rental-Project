@@ -1,0 +1,11 @@
+.small-input {
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+  }
+  .cont{
+    height: 500px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }

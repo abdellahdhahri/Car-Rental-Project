@@ -1,0 +1,83 @@
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light container">
+    
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <h4> This is Admin Dashboard</h4>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home"><button class="btn ">Home</button></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/rentedcar"  ><button class="btn ">Rented Cars</button> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/addvehicule"  ><button class="btn ">Add Vehicule</button> </a>
+      </li>
+      
+       
+      <li class="nav-item">
+        <a class="nav-link" href="admin" ><button class="btn ">All Agreements</button> </a>
+      </li> 
+     
+      <form class="d-flex">
+        <button class="btn" type="button" *ngIf="connected"  (click)="logOut()">Log Out</button>
+   
+      </form>
+    </ul>
+  </div>
+</nav>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AutoRent Pro</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto ">
+       
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" routerLink="/admin">All Agreements</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" routerLink="/addvehicule">Add Vehicule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" routerLink="/rentedcar">rentedcar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" routerLink="/cars">Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" routerLink="/dashboard">Statistiques</a>
+        </li>
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link mx-2 dropdown-toggle" *ngIf="connected"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{username}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" (click)="logOut()" style="cursor: pointer;">Log Out</a></li>
+ 
+          </ul>
+          
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link mx-2 dropdown-toggle" *ngIf="!connected" routerLink="/login"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Log In
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" [routerLink]="['/register']">Register</a></li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  </nav>

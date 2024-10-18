@@ -1,0 +1,37 @@
+
+<br><br><br><br>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Agreement ID</th>
+          <th>User Email</th>
+          <th>Required Days</th>
+          <th>Vehicle Maker</th>
+          <th>Vehicle Model</th>
+          <th>Total Cost</th>
+          <th>Edit Agreement</th>
+          <th>Delete Agreement</th>
+          <th>Return Button</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{item.agreementID}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.days}}</td>
+          <td>{{item.vehicleMaker}}</td>
+          <td>{{item.vehicleModel}}</td>
+          <td>{{item.rentalCost}}</td>
+          <!-- <td><a [routerLink]="['/edit/'+item.agreementID]" class="btn btn-warning">Edit</a></td> -->
+          <td><a  class="btn btn-warning"  (click)="open(item.agreementID)">Edit</a></td>
+          <td><button class="btn btn-danger" (click)="deleteAgreement(item.agreementID)">Delete</button></td>
+          <td>
+            <button *ngIf="item.avaialblity ==true" class="btn btn-success" (click)="acceptReturn(item.agreementID)">Accept Return</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
